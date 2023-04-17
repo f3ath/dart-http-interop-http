@@ -1,0 +1,23 @@
+name: http_interop_http
+description: Interop-compatible wrapper over the standard Dart http package
+version: 0.0.1
+repository: https://github.com/f3ath/dart-http-interop-http
+
+environment:
+  sdk: '>=2.19.0 <4.0.0'
+
+dependencies:
+  http_interop: ^0.0.1
+  http: ^0.13.5
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^2.0.1
+  cider: ^0.1.5
+  test: ^1.21.1
+  check_coverage: ^0.0.2
+
+cider:
+  link_template:
+    tag: 'https://github.com/f3ath/dart-http-interop-http/releases/tag/%tag%'
+    diff: 'https://github.com/f3ath/dart-http-interop-http/compare/%from%...%to%'
