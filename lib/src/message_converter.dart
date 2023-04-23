@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as h;
-import 'package:http_interop/http_interop.dart' as i;
+import 'package:http/http.dart';
+import 'package:http_interop/http_interop.dart';
 import 'package:http_parser/http_parser.dart';
 
 /// Converts HTTP messages to and from to ones used by the `http` package.
@@ -15,9 +15,9 @@ class MessageConverter {
 
   final Encoding _defaultResponseEncoding;
 
-  /// Converts [i.Request] to [h.Request].
-  h.Request request(i.Request request) {
-    final converted = h.Request(request.method, request.uri);
+  /// Converts [HttpRequest] to [Request].
+  Request request(HttpRequest request) {
+    final converted = Request(request.method, request.uri);
     final hasBody = !(request.isGet || request.isOptions);
     if (hasBody) {
       // The Request would set the content-type header if the body is assigned
@@ -30,11 +30,11 @@ class MessageConverter {
     return converted;
   }
 
-  /// Converts [h.Response] to [i.Response].
-  i.Response response(h.Response response) {
+  /// Converts [Response] to [HttpResponse].
+  HttpResponse response(Response response) {
     final encoding = _encodingForHeaders(response.headers);
     final body = encoding.decode(response.bodyBytes);
-    return i.Response(response.statusCode, body: body)
+    return HttpResponse(response.statusCode, body: body)
       ..headers.addAll(response.headers);
   }
 
