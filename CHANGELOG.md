@@ -1,3 +1,7 @@
+## [0.1.1] - 2023-04-30
+### Fixed
+- Content-Type was set for requests with an empty body
+
 ## [0.1.0] - 2023-04-22
 ### Changed
 - Bump deps
@@ -6,5 +10,6 @@
 ### Added
 - Initial commit
 
+[0.1.1]: https://github.com/f3ath/dart-http-interop-http/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.0.1...0.1.0
 [0.0.1]: https://github.com/f3ath/dart-http-interop-http/releases/tag/0.0.1
