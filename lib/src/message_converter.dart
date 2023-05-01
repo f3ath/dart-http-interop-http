@@ -18,13 +18,12 @@ class MessageConverter {
   /// Converts [HttpRequest] to [Request].
   Request request(HttpRequest request) {
     final converted = Request(request.method, request.uri);
-    final hasBody = !(request.isGet || request.isOptions);
-    if (hasBody) {
+    final body = request.body;
+    if (body.isNotEmpty) {
       // The Request would set the content-type header if the body is assigned
-      // a value (even an empty string). We want to avoid this extra header for
-      // GET and OPTIONS requests.
+      // a value (even an empty string).
       // See https://github.com/dart-lang/http/issues/841
-      converted.body = request.body;
+      converted.body = body;
     }
     converted.headers.addAll(request.headers);
     return converted;
