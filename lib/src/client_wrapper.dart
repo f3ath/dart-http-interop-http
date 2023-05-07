@@ -5,12 +5,12 @@ import 'package:http_interop_http/src/message_converter.dart';
 /// A wrapper over the standard Dart HTTP client.
 /// It is the developer's responsibility to instantiate the client and
 /// call `close()` on it in the end of the application lifecycle.
-class HandlerWrapper implements HttpHandler {
+class ClientWrapper implements HttpHandler {
   /// Creates a new instance of the wrapper. Do not forget to call `close()` on
   /// the [client] when it's not longer needed.
   ///
   /// Use [messageConverter] to fine tune the HTTP request/response conversion.
-  HandlerWrapper(this.client,
+  ClientWrapper(this.client,
       {this.messageConverter = const MessageConverter()});
 
   final Client client;

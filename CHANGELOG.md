@@ -1,3 +1,8 @@
+## [0.3.0] - 2023-05-07
+### Changed
+- Renamed HandlerWrapper to ClientWrapper
+- Relaxed SDK version to 2.19
+
 ## [0.2.0] - 2023-05-07
 ### Changed
 - Bump dependencies
@@ -14,6 +19,7 @@
 ### Added
 - Initial commit
 
+[0.3.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.2.0...0.3.0
 [0.2.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.1.1...0.2.0
 [0.1.1]: https://github.com/f3ath/dart-http-interop-http/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.0.1...0.1.0
