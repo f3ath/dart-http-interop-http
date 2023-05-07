@@ -1,66 +1,27 @@
-import 'dart:convert';
-
 import 'package:http/http.dart';
 import 'package:http_interop/http_interop.dart';
-import 'package:http_parser/http_parser.dart';
 
 /// Converts HTTP messages to and from to ones used by the `http` package.
 class MessageConverter {
   /// Creates an instance of the converter.
-  ///
-  /// Pass [defaultResponseEncoding] to use in cases when the server does
-  /// not specify the encoding.
-  const MessageConverter({Encoding defaultResponseEncoding = utf8})
-      : _defaultResponseEncoding = defaultResponseEncoding;
-
-  final Encoding _defaultResponseEncoding;
+  const MessageConverter();
 
   /// Converts [HttpRequest] to [Request].
   Request request(HttpRequest request) {
-    final converted = Request(request.method, request.uri);
-    final body = request.body;
+    final converted = Request(request.method.toString(), request.uri);
+    final body = request.bodyBytes;
     if (body.isNotEmpty) {
       // The Request would set the content-type header if the body is assigned
       // a value (even an empty string).
       // See https://github.com/dart-lang/http/issues/841
-      converted.body = body;
+      converted.bodyBytes = body;
     }
     converted.headers.addAll(request.headers);
     return converted;
   }
 
   /// Converts [Response] to [HttpResponse].
-  HttpResponse response(Response response) {
-    final encoding = _encodingForHeaders(response.headers);
-    final body = encoding.decode(response.bodyBytes);
-    return HttpResponse(response.statusCode, body: body)
-      ..headers.addAll(response.headers);
-  }
-
-  /// Returns the [Encoding] that corresponds to [charset].
-  ///
-  /// Returns [defaultResponseEncoding] if [charset] is null or if no [Encoding]
-  /// was found that corresponds to [charset].
-  Encoding _encodingForCharset(String? charset) {
-    if (charset == null) return _defaultResponseEncoding;
-    return Encoding.getByName(charset) ?? _defaultResponseEncoding;
-  }
-
-  /// Returns the [MediaType] object for the given content-type.
-  ///
-  /// Defaults to `application/octet-stream`.
-  MediaType _mediaType(String? contentType) {
-    if (contentType != null) return MediaType.parse(contentType);
-    return MediaType('application', 'octet-stream');
-  }
-
-  /// Returns the encoding to use for a response with the given headers.
-  ///
-  /// Defaults to [defaultEncoding] if the headers don't specify the charset
-  /// or if the charset is unknown.
-  Encoding _encodingForHeaders(Map<String, String> headers) {
-    final mediaType = _mediaType(headers['content-type']);
-    final charset = mediaType.parameters['charset'];
-    return _encodingForCharset(charset);
-  }
+  HttpResponse response(Response response) =>
+      HttpResponse.binary(response.statusCode, response.bodyBytes,
+          headers: response.headers);
 }
