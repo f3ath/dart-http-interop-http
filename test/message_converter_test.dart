@@ -9,7 +9,7 @@ void main() {
     final uri = Uri.parse('https://example.com');
 
     test('body gets set', () {
-      final r = converter.request(HttpRequest('POST', uri,  'foo'));
+      final r = converter.request(HttpRequest('POST', uri, 'foo'));
       expect(r.body, equals('foo'));
     });
     test('default charset it used', () {
