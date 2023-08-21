@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:http_interop/extensions.dart';
 import 'package:http_interop/http_interop.dart';
 import 'package:http_interop_http/http_interop_http.dart';
 
@@ -8,5 +11,5 @@ Future<void> main() async {
   final response = await handler.handle(request);
   print(response.statusCode);
   print(response.headers);
-  print(response.body);
+  print(await response.body.decode(utf8));
 }
