@@ -1,6 +1,6 @@
 ## [0.5.0] - 2023-08-20
 ### Changed
-- Bum the interop to 0.7
+- Bump the interop to 0.7
 
 ## [0.4.0] - 2023-08-16
 ### Changed
