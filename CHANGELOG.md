@@ -1,3 +1,7 @@
+## [0.6.0] - 2023-09-07
+### Changed
+- Bump interop to 0.8
+
 ## [0.5.0] - 2023-08-20
 ### Changed
 - Bump the interop to 0.7
@@ -27,6 +31,7 @@
 ### Added
 - Initial commit
 
+[0.6.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.2.0...0.3.0
