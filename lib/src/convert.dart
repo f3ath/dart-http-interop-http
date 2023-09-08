@@ -11,7 +11,14 @@ Future<http.Request> convertRequest(Request request) async {
     // See https://github.com/dart-lang/http/issues/841
     converted.bodyBytes = body;
   }
-  converted.headers.addAll(request.headers);
+  request.headers.forEach((key, values) {
+    if (values.isEmpty) return;
+    if (values.length > 1) {
+      throw UnsupportedError('Multiple header values are not supported.'
+          ' See https://github.com/dart-lang/http/issues/24');
+    }
+    converted.headers[key] = values.single;
+  });
   return converted;
 }
 
@@ -19,4 +26,4 @@ Future<http.Request> convertRequest(Request request) async {
 Future<Response> convertResponse(http.Response response) async => Response(
     response.statusCode,
     Body.binary(response.bodyBytes),
-    Headers(response.headers));
+    Headers(response.headers.map((key, value) => MapEntry(key, [value]))));

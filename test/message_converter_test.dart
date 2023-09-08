@@ -16,8 +16,20 @@ void main() {
 
     test('no body, no headers', () async {
       final r = await convertRequest(
-          Request(Method('POST'), uri, Body.empty, Headers({})));
+          Request(Method('POST'), uri, Body.empty(), Headers({})));
       expect(r.headers, isEmpty);
+    });
+
+    test('repeating headers are not supported', () async {
+      expect(
+          () => convertRequest(Request(
+              Method('POST'),
+              uri,
+              Body.empty(),
+              Headers({
+                'foo': ['bar', 'baz']
+              }))),
+          throwsUnsupportedError);
     });
   });
 }
