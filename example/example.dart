@@ -7,10 +7,10 @@ import 'package:http_interop_http/http_interop_http.dart';
 Future<void> main() async {
   final handler = OneOffHandler();
   final request = Request(
-      Method('get'),
+      'get',
       Uri.parse('https://example.com'),
-      Body.empty(),
-      Headers({
+      Body(),
+      Headers.from({
         'User-Agent': ['R2-D2']
       }));
   final response = await handler.handle(request);

@@ -1,3 +1,4 @@
-export 'package:http_interop_http/src/disposable_handler.dart';
 export 'package:http_interop_http/src/client_wrapper.dart';
-export 'package:http_interop_http/src/convert.dart';
+export 'package:http_interop_http/src/disposable_handler.dart';
+export 'package:http_interop_http/src/header_folding.dart';
+export 'package:http_interop_http/src/standard_folding.dart';
