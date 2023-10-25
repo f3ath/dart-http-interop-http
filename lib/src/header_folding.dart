@@ -1,5 +1,4 @@
 abstract interface class HeaderFolding {
-  
   /// Split folded [values] for the [keyLowerCase].
   List<String> split(String keyLowerCase, String values);
 
