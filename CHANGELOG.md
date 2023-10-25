@@ -1,3 +1,13 @@
+## [0.7.0] - 2023-10-24
+### Added
+- Injectable header folding logic
+
+### Changed
+- ClientWrapper ctor signature
+
+### Removed
+- Injectable converters
+
 ## [0.6.0] - 2023-09-07
 ### Changed
 - Bump interop to 0.8
@@ -31,6 +41,7 @@
 ### Added
 - Initial commit
 
+[0.7.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.3.0...0.4.0
