@@ -1,3 +1,7 @@
+## [0.8.0] - 2024-06-29
+### Changed
+- Bump interop to 2.0
+
 ## [0.7.0] - 2023-10-24
 ### Added
 - Injectable header folding logic
@@ -41,6 +45,7 @@
 ### Added
 - Initial commit
 
+[0.8.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.7.0...0.8.0
 [0.7.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.4.0...0.5.0

@@ -16,7 +16,7 @@ void main() {
 
   setUp(() async {
     client = http.Client();
-    handler = ClientWrapper(client);
+    handler = client.interopHandler();
     server = await HttpServer.bind(host, port);
     server.listen((rq) async {
       rq.response.statusCode = 200;
@@ -51,7 +51,7 @@ void main() {
 
   group('Smoke test', () {
     test('headers (un)folding', () async {
-      final response = await handler.handle(Request(
+      final response = await handler(Request(
           'post',
           Uri(host: host, port: port, scheme: 'http'),
           Body.text('Привет', utf8),
@@ -77,3 +77,5 @@ void main() {
     });
   });
 }
+
+
