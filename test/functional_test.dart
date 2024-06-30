@@ -16,7 +16,7 @@ void main() {
 
   setUp(() async {
     client = http.Client();
-    handler = client.interopHandler();
+    handler = client.handleInterop;
     server = await HttpServer.bind(host, port);
     server.listen((rq) async {
       rq.response.statusCode = 200;
@@ -75,5 +75,13 @@ void main() {
       expect(json['request']['body_bytes'],
           equals([208, 159, 209, 128, 208, 184, 208, 178, 208, 181, 209, 130]));
     });
+  });
+
+  test('Content-Type is not set on empty body', () async {
+    final response = await handler(Request(
+        'get', Uri(host: host, port: port, scheme: 'http'), Body(), Headers()));
+    final json = await response.body.decodeJson();
+    expect(response.statusCode, equals(200));
+    expect(json['request']['headers']['content-type'], isNull);
   });
 }

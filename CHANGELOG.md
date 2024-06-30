@@ -1,3 +1,7 @@
+## [0.9.0] - 2024-06-30
+### Changed
+- Simplified API
+
 ## [0.8.1] - 2024-06-29
 ### Fixed
 - Updated the readme
@@ -49,6 +53,7 @@
 ### Added
 - Initial commit
 
+[0.9.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.8.1...0.9.0
 [0.8.1]: https://github.com/f3ath/dart-http-interop-http/compare/0.8.0...0.8.1
 [0.8.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.7.0...0.8.0
 [0.7.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.6.0...0.7.0
