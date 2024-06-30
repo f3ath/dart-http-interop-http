@@ -1,6 +1,6 @@
 name: http_interop_http
 description: Interop-compatible wrapper over the standard Dart http package
-version: 0.8.1
+version: 0.9.0
 repository: https://github.com/f3ath/dart-http-interop-http
 
 environment:
@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   http_interop: ^2.0.0
-  http: ^1.0.0
+  http: ^1.2.1
 
 dev_dependencies:
   lints: ^4.0.0
