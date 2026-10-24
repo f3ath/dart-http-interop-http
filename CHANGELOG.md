@@ -1,3 +1,13 @@
+## [0.10.0] - 2026-10-24
+### Changed
+- BREAKING: Rename InteropHandler to ClientExt and handleInterop to sendInterop.
+- BREAKING: Require Dart 3.13 or later and http\_interop 3.0.
+- Stream request and response bodies without full buffering. Keep the client open until the response body is consumed or its subscription is canceled.
+
+### Fixed
+- Preserve commas in response header values while keeping Set-Cookie values separate.
+- Omit empty request header lists while preserving explicit empty-string values.
+
 ## [0.9.0] - 2024-06-30
 ### Changed
 - Simplified API
@@ -53,6 +63,7 @@
 ### Added
 - Initial commit
 
+[0.10.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.9.0...0.10.0
 [0.9.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.8.1...0.9.0
 [0.8.1]: https://github.com/f3ath/dart-http-interop-http/compare/0.8.0...0.8.1
 [0.8.0]: https://github.com/f3ath/dart-http-interop-http/compare/0.7.0...0.8.0
